@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our 1st Valentine's Day</title>
+    <style>
+        body {
+            background-color: #f8e0e8;
+            font-family: 'Courier New', Courier, monospace;
+            overflow: hidden;
+            margin: 0;
+            text-align: center;
+        }
+        h1 {
+            color: #ff3366;
+            font-size: 4em;
+            font-family: 'Times New Roman', Times, serif;
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+        .letter-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: url('https://cdn.pixabay.com/photo/2017/08/30/00/24/paper-2690009_960_720.jpg') no-repeat center;
+            background-size: cover;
+            width: 70%;
+            height: 80%;
+            border: 6px solid #8b4513;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            animation: letterAnimation 6s ease-out infinite;
+        }
+        @keyframes letterAnimation {
+            0% { top: 20%; opacity: 0; transform: rotate(0deg); }
+            50% { top: 50%; opacity: 1; transform: rotate(10deg); }
+            100% { top: 80%; opacity: 0; transform: rotate(-10deg); }
+        }
+        .text {
+            color: #fff;
+            font-size: 1.5em;
+            font-family: 'Georgia', serif;
+            margin-top: 20px;
+            line-height: 1.6;
+            text-align: left;
+        }
+        .balloon {
+            position: absolute;
+            width: 80px;
+            height: 120px;
+            background-color: #ff1493;
+            border-radius: 50%;
+            animation: float 12s ease-in-out infinite;
+        }
+        .balloon:nth-child(odd) {
+            background-color: #ff69b4;
+        }
+        .balloon:nth-child(even) {
+            background-color: #ff3366;
+        }
+        @keyframes float {
+            0% { bottom: -150px; left: calc(100% * random); }
+            100% { bottom: 100vh; left: calc(100% * random); }
+        }
+        .heart {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-color: red;
+            clip-path: polygon(50% 0%, 0% 35%, 50% 100%, 100% 35%);
+            animation: heartAnimation 5s infinite alternate;
+        }
+        @keyframes heartAnimation {
+            0% { transform: rotate(0deg); }
+            50% { transform: rotate(45deg); }
+            100% { transform: rotate(0deg); }
+        }
+        .twinkling {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://cdn.pixabay.com/photo/2017/06/07/11/32/stars-2371713_960_720.jpg') repeat;
+            animation: twinkle 1.5s infinite alternate;
+        }
+        @keyframes twinkle {
+            0% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+        .floating-text {
+            font-size: 2em;
+            color: #ff3366;
+            animation: moveText 7s linear infinite;
+            font-family: 'Georgia', serif;
+        }
+        @keyframes moveText {
+            0% { top: 20%; left: 5%; }
+            100% { top: 80%; left: 90%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="twinkling"></div>
+    <h1>To My Dearest Chaand</h1>
+    <div class="letter-container">
+        <div class="text">
+            <p>So, Miss Chaand <3 :)</p>
+            <p>We first met on April 22, and slowly, a beautiful friendship started...</p>
+            <p>And now, here we are, celebrating our first Valentine’s together. This is just the beginning. I want 50+ more Valentine’s with you, each one better than the last. You and me, always.</p>
+        </div>
+    </div>
+    <script>
+        // Create floating balloons
+        for (let i = 0; i < 10; i++) {
+            let balloon = document.createElement('div');
+            balloon.classList.add('balloon');
+            balloon.style.left = `${Math.random() * 100}vw`;
+            balloon.style.animationDuration = `${Math.random() * 6 + 6}s`;
+            document.body.appendChild(balloon);
+        }
+
+        // Create floating hearts
+        for (let i = 0; i < 5; i++) {
+            let heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.style.left = `${Math.random() * 100}vw`;
+            heart.style.animationDuration = `${Math.random() * 3 + 3}s`;
+            document.body.appendChild(heart);
+        }
+
+        // Create floating text
+        let text = document.createElement('div');
+        text.classList.add('floating-text');
+        text.innerText = "I love you, forever and always!";
+        document.body.appendChild(text);
+    </script>
+</body>
+</html>
